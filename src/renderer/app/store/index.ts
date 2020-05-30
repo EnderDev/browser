@@ -6,6 +6,7 @@ import { EventsStore } from "./events";
 
 import { observable } from 'mobx';
 import { ConnectivityStore } from "./connectivity";
+import { ipcRenderer } from "electron";
 
 class Dot {
     public tabs = new TabsStore(this);
@@ -33,8 +34,9 @@ class Dot {
                 if(r.connected == -1 || r.connected == 1) this.isOnline = true;
                 if(r.connected == 0) this.isOnline = false;
             })
-            ipcRenderer.send('suggestionbox-width', `${this.searchRef.current.getBoundingClientRect().width}`);
-            ipcRenderer.send('suggestionbox-left', `${this.searchRef.current.getBoundingClientRect().left}`);
+            
+            ipcRenderer.send('suggestionbox-width', this.searchRef.current.getBoundingClientRect().width);
+            ipcRenderer.send('suggestionbox-left', this.searchRef.current.getBoundingClientRect().left);
         })
     }
 }
