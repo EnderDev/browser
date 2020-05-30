@@ -11,7 +11,14 @@ import {
     navigateView
 } from "./tools/view";
 import { appWindow } from ".";
-import { updateMouseBoundries, updateOverlayCursor, showSuggestionBox, hideSuggestionBox, setSuggestionBoxWidth, setSuggestionBoxLeft } from "./tools/overlay";
+import { 
+  updateMouseBoundries, 
+  updateOverlayCursor, 
+  showSuggestionBox, 
+  hideSuggestionBox, 
+  setSuggestionBoxWidth, 
+  setSuggestionBoxLeft 
+} from "./tools/overlay";
 
 export const startMessagingAgent = () => {
     ipcMain.on('view-create', (e, options) => createView(options))
