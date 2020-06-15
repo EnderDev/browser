@@ -1,7 +1,5 @@
 import { BrowserWindow, app, Menu, screen } from 'electron';
 import { resolve } from 'path';
-import glasstron from 'glasstron';
-import { View } from './view';
 import { startMessagingAgent } from './messaging';
 import { getAppMenu } from './menus/app';
 import { Storage } from './storage';
@@ -15,8 +13,6 @@ export class AppWindow {
     public services: ServiceManager = new ServiceManager()
 
     public storage: Storage;
-
-    public views: View[] = [];
     
     public selectedId: string;
     public fullscreen: boolean;
@@ -48,12 +44,6 @@ export class AppWindow {
             enableRemoteModule: true
           },
         })
-
-        // glasstron.update(this.window, {
-        //     macos: {vibrancy: "fullscreen-ui"},
-        //     linux: {requestBlur: true},
-        //     windows: {blurType: "blurbehind"}
-        // })
 
         this.overlay = new Overlay(this);
 
@@ -95,11 +85,11 @@ export class AppWindow {
     };
 
     rearrangeView() {
-      this.selectedView.rearrange()
+      // this.selectedView.rearrange()
     }
 
     public getViewFromId(id: string) {
-      return this.views.find(view => view.id == id)
+      // return this.views.find(view => view.id == id)
     }
 
     public get selectedView() {

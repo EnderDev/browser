@@ -10,6 +10,8 @@ import { observer } from 'mobx-react';
 
 import { fonts } from "../../../constants/fonts";
 import { remote } from 'electron';
+import { View } from '../View';
+import { NEWTAB_URL } from '../../../constants/web';
 
 const GlobalStyle = createGlobalStyle`${Style}`;
 
@@ -108,5 +110,6 @@ export const App = observer(() => (
         <GlobalStyle />
         <Tabs />
         <Navigation />
+        <View url={NEWTAB_URL} />
     </StyledApp>
 ))

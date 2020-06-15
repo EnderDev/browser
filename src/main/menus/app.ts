@@ -140,21 +140,21 @@ export const getAppMenu = (appName) => {
                 {
                     label: "Stop",
                     accelerator: "CmdOrCtrl+Period",
-                    enabled: appWindow && appWindow.getViewFromId(appWindow.selectedId).view.webContents.isLoading(),
+                    enabled: true,
                     click: () => {
-                        const view = appWindow.getViewFromId(appWindow.selectedId)
+                        // const view = appWindow.getViewFromId(appWindow.selectedId)
 
-                        view.view.webContents.stop()
+                        // view.view.webContents.stop()
                     }
                 },
                 {
                     label: "Reload This Page",
                     accelerator: "CmdOrCtrl+R",
-                    enabled: appWindow && !appWindow.getViewFromId(appWindow.selectedId).view.webContents.isLoading(),
+                    enabled: true,
                     click: () => {
-                        const view = appWindow.getViewFromId(appWindow.selectedId)
+                        // const view = appWindow.getViewFromId(appWindow.selectedId)
 
-                        view.view.webContents.reload()
+                        // view.view.webContents.reload()
                     }
                 },
                 {
@@ -162,11 +162,11 @@ export const getAppMenu = (appName) => {
                     accelerator: "F5",
                     acceleratorWorksWhenHidden: true,
                     visible: false,
-                    enabled: appWindow && !appWindow.getViewFromId(appWindow.selectedId).view.webContents.isLoading(),
+                    enabled: true,
                     click: () => {
-                        const view = appWindow.getViewFromId(appWindow.selectedId)
+                        // const view = appWindow.getViewFromId(appWindow.selectedId)
 
-                        view.view.webContents.reload()
+                        // view.view.webContents.reload()
                     }
                 },
                 {
@@ -205,9 +205,9 @@ export const getAppMenu = (appName) => {
                             label: "Toggle Developer Tools",
                             accelerator: "CmdOrCtrl+Option+I",
                             click: () => {
-                                const view = appWindow.getViewFromId(appWindow.selectedId)
+                                // const view = appWindow.getViewFromId(appWindow.selectedId)
         
-                                view.view.webContents.toggleDevTools()
+                                // view.view.webContents.toggleDevTools()
                             }
                         },
                         {
@@ -229,27 +229,27 @@ export const getAppMenu = (appName) => {
                     label: "Home",
                     accelerator: "CmdOrCtrl+Shift+H",
                     click: () => {
-                        const view = appWindow.getViewFromId(appWindow.selectedId)
+                        // const view = appWindow.getViewFromId(appWindow.selectedId)
 
-                        view.view.webContents.loadURL(NEWTAB_URL)
+                        // view.view.webContents.loadURL(NEWTAB_URL)
                     }
                 },
                 {
                     label: "Back",
                     accelerator: "CmdOrCtrl+[",
                     click: () => {
-                        const view = appWindow.getViewFromId(appWindow.selectedId)
+                        // const view = appWindow.getViewFromId(appWindow.selectedId)
 
-                        view.view.webContents.goBack()
+                        // view.view.webContents.goBack()
                     }
                 },
                 {
                     label: "Forward",
                     accelerator: "CmdOrCtrl+]",
                     click: () => {
-                        const view = appWindow.getViewFromId(appWindow.selectedId)
+                        // const view = appWindow.getViewFromId(appWindow.selectedId)
 
-                        view.view.webContents.goForward()
+                        // view.view.webContents.goForward()
                     }
                 },
                 {

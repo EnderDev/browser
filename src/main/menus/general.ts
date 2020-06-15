@@ -2,28 +2,28 @@ import { Menu, MenuItem, app } from "electron";
 import { appWindow } from "..";
 
 export const getGeneralMenu = (tabId) => {
-    const { view } = appWindow.getViewFromId(tabId)
+    // const { view } = appWindow.getViewFromId(tabId)
 
     return Menu.buildFromTemplate([
         {
             label: "Back",
             accelerator: "Alt+Left",
             click: () => {
-                view.webContents.goBack()
+                // view.webContents.goBack()
             }
         },
         {
             label: "Forward",
             accelerator: "Alt+Right",
             click: () => {
-                view.webContents.goForward()
+                // view.webContents.goForward()
             }
         },
         {
             label: "Reload",
             accelerator: "CmdOrCtrl+R",
             click: () => {
-                view.webContents.reload()
+                // view.webContents.reload()
             }
         },
         {
@@ -58,7 +58,7 @@ export const getGeneralMenu = (tabId) => {
             label: "Reset Zoom",
             role: "resetZoom",
             accelerator: "CmdOrCtrl+0",
-            visible: view.webContents.zoomFactor !== 1
+            visible: true
         },
         {
             type: "separator",
@@ -67,16 +67,16 @@ export const getGeneralMenu = (tabId) => {
             label: "View Page Source",
             accelerator: "CmdOrCtrl+U",
             click: () => {
-                const url = appWindow.getViewFromId(tabId).url
+                // const url = appWindow.getViewFromId(tabId).url
 
-                view.webContents.loadURL(`view-source:${url}`)
+                // view.webContents.loadURL(`view-source:${url}`)
             }
         },
         {
             label: "Inspect",
             accelerator: "CmdOrCtrl+Shift+I",
             click: () => {
-                view.webContents.toggleDevTools()
+                // view.webContents.toggleDevTools()
             }
         }
     ])
