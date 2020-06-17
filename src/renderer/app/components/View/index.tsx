@@ -8,7 +8,6 @@ import { WebView } from "./style";
 
 interface ViewProps {
     url: string;
-    id?: string;
 }
 
 @observer
@@ -16,21 +15,47 @@ export class View extends React.Component<ViewProps> {
     public id: string;
     public url: string;
     public favicon: string;
-    public view: React.RefObject<WebviewTag>;
+
+    public ready: boolean = false;
+    public ua: string = "";
+    public view: WebviewTag;
 
     constructor(props: any) {
         super(props)
 
-        if(!props.id) props.id == v4();
-
-        this.id = props.id;
         this.url = props.url;
-        this.view = React.createRef<WebviewTag>();
+    }
+
+    public init() {
+        if(this.ready == true) return;
+
+        this.view = (document.getElementById(`tab-${this.id}`) as WebviewTag)
+
+        this.view.addEventListener('dom-ready', () => {
+            this.ready = true;
+        })
+    }
+
+    private updateUA() {
+        if(!this.view) return;
+        
+        const ua = navigator.userAgent.replace(/ DotBrowser\\?.([^\s]+)/g, '').replace(/ Electron\\?.([^\s]+)/g, '') + " Edg/83.0.478.50"
+
+        this.view.setAttribute("useragent", ua)
+        return ua;
+    }
+
+    public componentDidMount() {
+        this.init()
+
+        this.ua = this.updateUA();
     }
 
     render() {
+        this.id = v4();
+        
         return (
-            <WebView src={this.url} ref={this.view} />
+            <WebView src={this.url} id={`tab-${this.id}`} useragent={this.ua} />
         )
     }
 }
